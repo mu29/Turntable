@@ -15,8 +15,9 @@
         android:background="@color/white">
 
         <net.yeoubi.turntable.widgets.NotoTextView
+            android:id="@+id/index"
             android:layout_width="wrap_content"
-            android:layout_height="24dp"
+            android:layout_height="14dp"
             android:layout_marginRight="@dimen/space_2"
             android:layout_marginEnd="@dimen/space_2"
             android:textSize="@dimen/font_small"
@@ -31,6 +32,7 @@
             android:orientation="vertical">
 
             <net.yeoubi.turntable.widgets.NotoTextView
+                android:id="@+id/title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/space_1"
@@ -39,6 +41,7 @@
                 tools:text="첫눈처럼 너에게 가겠다"/>
 
             <net.yeoubi.turntable.widgets.NotoTextView
+                android:id="@+id/artist"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/font_small"
