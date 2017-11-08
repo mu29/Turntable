@@ -24,7 +24,8 @@ class MainActivity : AppCompatActivity(), AppBarLayout.OnOffsetChangedListener {
 
     override fun onOffsetChanged(bar: AppBarLayout?, offset: Int) {
         val dimension = DimensionUtils.context(this)
-        background_image.alpha = 1 - 0.8f * (-dimension.toDp(offset) / 184.0f)
+        background_image.alpha = 1 + 0.8f * (dimension.toDp(offset) / 184.0f)
+        search_view.alpha = 1 + dimension.toDp(offset) / 92.0f
         content_view.updateMargins(8, (-32 - dimension.toDp(offset) / (192 / 32)).toInt(), 8, 0)
     }
 

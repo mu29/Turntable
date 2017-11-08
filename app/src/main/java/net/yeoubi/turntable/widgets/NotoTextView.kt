@@ -32,12 +32,12 @@ class NotoTextView : TextView {
     }
 
     private fun setType(context: Context) {
-        this.typeface = Typeface.createFromAsset(context.assets, "NotoSansRegular.otf")
+        typeface = Typeface.createFromAsset(context.assets, "NotoSansRegular.otf")
     }
 
     private fun setType(context: Context, attrs: AttributeSet) {
         val weight: String? = context.obtainStyledAttributes(attrs, R.styleable.NotoTextView).getString(R.styleable.NotoTextView_weight)
-        this.typeface = when (weight) {
+        typeface = when (weight) {
             "light" -> Typeface.createFromAsset(context.assets, "NotoSansLight.otf")
             "bold" -> Typeface.createFromAsset(context.assets, "NotoSansBold.otf")
             else -> Typeface.createFromAsset(context.assets, "NotoSansRegular.otf")

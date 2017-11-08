@@ -28,41 +28,66 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/background_height"
                 android:scaleType="centerCrop"
-                android:src="@drawable/background"
+                android:src="@color/red"
                 app:layout_collapseMode="parallax"/>
 
             <FrameLayout
+                android:id="@+id/search_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:layout_collapseMode="pin">
 
+                <net.yeoubi.turntable.widgets.TitleTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginLeft="16dp"
+                    android:text="@string/app_name"
+                    android:textColor="@color/white"
+                    android:textSize="24sp"
+                    android:layout_gravity="top|left|start"/>
+
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:layout_margin="@dimen/space_2"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="64dp"
+                    android:layout_marginLeft="@dimen/space_4"
+                    android:layout_marginRight="@dimen/space_4"
                     android:layout_gravity="center"
-                    android:orientation="horizontal">
+                    android:orientation="vertical">
 
-                    <EditText
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:padding="@dimen/space_2"
-                        android:background="@drawable/rectangle_white_round_left"
-                        android:textSize="@dimen/font_medium"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
 
-                    <FrameLayout
-                        android:layout_width="48dp"
-                        android:layout_height="match_parent"
-                        android:background="@drawable/rectangle_red_round_right">
+                        <EditText
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:padding="@dimen/space_2"
+                            android:background="@android:color/transparent"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/font_large"/>
 
-                        <TextView
+                        <FrameLayout
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:text="@string/search"
-                            android:textColor="@color/white"/>
-                    </FrameLayout>
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_search"
+                                android:tint="@color/white"/>
+                        </FrameLayout>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginTop="@dimen/space_1"
+                        android:background="@color/white"/>
                 </LinearLayout>
             </FrameLayout>
 
@@ -90,7 +115,6 @@
         android:layout_marginTop="@dimen/minus_space_8"
         android:layout_marginLeft="@dimen/space_2"
         android:layout_marginRight="@dimen/space_2"
-        android:background="@color/white"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:context="net.yeoubi.turntable.MainActivity"
         tools:showIn="@layout/activity_main">

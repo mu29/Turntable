@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Turntable</string>
+    <string name="app_name">turntable</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="action_settings">Settings</string>
     <string name="search">검색</string>
