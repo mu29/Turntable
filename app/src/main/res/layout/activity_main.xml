@@ -2,6 +2,7 @@
 <android.support.design.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -65,6 +66,12 @@
         </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@drawable/bottom_shadow"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
     <android.support.v4.widget.NestedScrollView
         android:id="@+id/content_view"
         android:layout_width="match_parent"
@@ -76,11 +83,20 @@
         tools:context="net.yeoubi.turntable.MainActivity"
         tools:showIn="@layout/activity_main">
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/music_list"
+        <android.support.v7.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layoutManager="LinearLayoutManager"
-            tools:listitem="@layout/item_music"/>
+            card_view:cardUseCompatPadding="true"
+            card_view:cardElevation="2dp"
+            card_view:cardCornerRadius="2dp">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/music_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                app:layoutManager="LinearLayoutManager"
+                tools:listitem="@layout/item_music"/>
+        </android.support.v7.widget.CardView>
     </android.support.v4.widget.NestedScrollView>
 </android.support.design.widget.CoordinatorLayout>
