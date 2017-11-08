@@ -19,7 +19,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
-            app:contentScrim="@color/black_alpha"
+            app:scrimAnimationDuration="300"
+            app:contentScrim="@color/red"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             app:toolbarId="@+id/toolbar">
 
@@ -28,34 +29,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/background_height"
                 android:background="@color/red"/>
-
-            <FrameLayout
-                android:id="@+id/search_view"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:layout_collapseMode="pin">
-
-                <net.yeoubi.turntable.widgets.TitleTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="40dp"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginStart="16dp"
-                    android:text="@string/app_name"
-                    android:textColor="@color/white"
-                    android:textSize="24sp"
-                    android:layout_gravity="top|start"/>
-
-                <ImageView
-                    android:layout_width="18dp"
-                    android:layout_height="18dp"
-                    android:layout_gravity="top|end"
-                    android:layout_marginTop="43dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:src="@drawable/ic_search"
-                    android:tint="@color/white"/>
-            </FrameLayout>
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
@@ -69,6 +42,24 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
+                    <net.yeoubi.turntable.widgets.TitleTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical|start"
+                        android:layout_marginLeft="@dimen/space_4"
+                        android:layout_marginStart="@dimen/space_4"
+                        android:text="@string/app_name"
+                        android:textColor="@color/white"
+                        android:textSize="24sp"/>
+
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:layout_gravity="center_vertical|end"
+                        android:layout_marginRight="@dimen/space_4"
+                        android:layout_marginEnd="@dimen/space_4"
+                        android:src="@drawable/ic_search"
+                        android:tint="@color/white"/>
                 </FrameLayout>
             </android.support.v7.widget.Toolbar>
         </android.support.design.widget.CollapsingToolbarLayout>
