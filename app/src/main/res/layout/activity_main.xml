@@ -47,48 +47,15 @@
                     android:textSize="24sp"
                     android:layout_gravity="top|left|start"/>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="64dp"
-                    android:layout_marginLeft="@dimen/space_4"
-                    android:layout_marginRight="@dimen/space_4"
-                    android:layout_gravity="center"
-                    android:orientation="vertical">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <EditText
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:padding="@dimen/space_2"
-                            android:background="@android:color/transparent"
-                            android:textColor="@color/white"
-                            android:textSize="@dimen/font_large"/>
-
-                        <FrameLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent">
-
-                            <ImageView
-                                android:layout_width="18dp"
-                                android:layout_height="18dp"
-                                android:layout_gravity="center"
-                                android:src="@drawable/ic_search"
-                                android:tint="@color/white"/>
-                        </FrameLayout>
-                    </LinearLayout>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="2dp"
-                        android:layout_marginTop="@dimen/space_1"
-                        android:background="@color/white"/>
-                </LinearLayout>
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_gravity="top|right"
+                    android:layout_marginTop="43dp"
+                    android:layout_marginRight="16dp"
+                    android:src="@drawable/ic_search"
+                    android:tint="@color/white"/>
             </FrameLayout>
 
             <android.support.v7.widget.Toolbar
