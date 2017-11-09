@@ -7,8 +7,8 @@ import android.support.design.widget.AppBarLayout
 import kotlinx.android.synthetic.main.activity_main.*
 import net.yeoubi.turntable.R
 import net.yeoubi.turntable.databinding.ActivityMainBinding
-import net.yeoubi.turntable.utils.DimensionUtils
-import net.yeoubi.turntable.extensions.updateMargins
+import net.yeoubi.turntable.common.utils.DimensionUtils
+import net.yeoubi.turntable.common.extensions.updateMargins
 import net.yeoubi.turntable.view.adapter.ItemChangeListener
 import net.yeoubi.turntable.view.adapter.RecyclerAdapter
 import net.yeoubi.turntable.view.common.AttachedView

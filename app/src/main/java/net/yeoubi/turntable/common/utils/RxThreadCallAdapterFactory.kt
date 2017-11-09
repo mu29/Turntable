@@ -1,4 +1,4 @@
-package net.yeoubi.turntable.utils
+package net.yeoubi.turntable.common.utils
 
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers

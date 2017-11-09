@@ -1,4 +1,4 @@
-package net.yeoubi.turntable.extensions
+package net.yeoubi.turntable.common.extensions
 
 import android.view.View
 import android.view.ViewGroup

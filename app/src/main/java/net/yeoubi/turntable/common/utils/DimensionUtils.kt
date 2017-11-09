@@ -1,4 +1,4 @@
-package net.yeoubi.turntable.utils
+package net.yeoubi.turntable.common.utils
 
 import android.content.Context
 import android.util.TypedValue
