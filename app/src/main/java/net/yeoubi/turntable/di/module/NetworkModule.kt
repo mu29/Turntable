@@ -6,7 +6,7 @@ import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
 import net.yeoubi.turntable.BuildConfig
-import net.yeoubi.turntable.utils.RxThreadCallAdapterFactory
+import net.yeoubi.turntable.common.utils.RxThreadCallAdapterFactory
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -26,7 +26,6 @@ class NetworkModule {
         val builder = GsonBuilder()
 
         builder.setDateFormat("yyyy-MM-dd HH:mm:ss")
-        builder.setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
         builder.setLenient()
 
         return builder.create()
