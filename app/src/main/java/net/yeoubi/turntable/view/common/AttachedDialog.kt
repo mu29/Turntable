@@ -142,4 +142,18 @@ class AttachedDialog(dialog: DialogFragment) : AttachedView {
         close()
         (dialogClass.newInstance() as ViewModelDialog).show(activity.supportFragmentManager, title)
     }
+
+    /**
+     * 현재 Activity 의 Extra 를 받아옵니다.
+     *
+     * @param key 받아올 extra 의 키입니다.
+     */
+    override fun getExtra(key: String): Any? {
+        val activity = weakDialog.get()?.activity
+        if (activity == null || activity.isFinishing) {
+            return null
+        }
+
+        return activity.intent.extras.get(key)
+    }
 }

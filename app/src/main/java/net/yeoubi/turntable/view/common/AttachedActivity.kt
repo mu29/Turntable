@@ -2,6 +2,7 @@ package net.yeoubi.turntable.view.common
 
 import android.app.Activity
 import android.content.Intent
+import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import java.lang.ref.WeakReference
 import java.net.URISyntaxException
@@ -143,5 +144,19 @@ class AttachedActivity(activity: AppCompatActivity) : AttachedView {
         }
 
         (dialogClass.newInstance() as ViewModelDialog).show(activity.supportFragmentManager, title)
+    }
+
+    /**
+     * 현재 Activity 의 Extra 를 받아옵니다.
+     *
+     * @param key 받아올 extra 의 키입니다.
+     */
+    override fun getExtra(key: String): Any? {
+        val activity = weakActivity.get()
+        if (activity == null || activity.isFinishing) {
+            return null
+        }
+
+        return activity.intent.extras.get(key)
     }
 }

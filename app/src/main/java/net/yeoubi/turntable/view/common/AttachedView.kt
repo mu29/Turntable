@@ -1,6 +1,7 @@
 package net.yeoubi.turntable.view.common
 
 import android.app.Activity
+import android.os.Bundle
 import java.net.URISyntaxException
 import kotlin.reflect.KClass
 
@@ -51,4 +52,11 @@ interface AttachedView {
      */
     fun showDialog(dialogClass: KClass<*>, title: String)
     fun showDialog(dialogClass: Class<*>, title: String)
+
+    /**
+     * 현재 Activity 의 Extra 를 받아옵니다.
+     *
+     * @param key 받아올 extra 의 키입니다.
+     */
+    fun getExtra(key: String): Any?
 }
