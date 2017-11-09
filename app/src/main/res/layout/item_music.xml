@@ -1,60 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<layout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="net.yeoubi.turntable.viewmodel.item.MusicItemViewModel"/>
+    </data>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="@dimen/space_3"
-        android:background="@color/white">
-
-        <net.yeoubi.turntable.widgets.NotoTextView
-            android:id="@+id/index"
-            android:layout_width="wrap_content"
-            android:layout_height="14dp"
-            android:layout_marginRight="@dimen/space_2"
-            android:layout_marginEnd="@dimen/space_2"
-            android:textSize="@dimen/font_small"
-            android:textColor="@color/black"
-            android:gravity="center"
-            app:weight="bold"
-            tools:text="#76229"/>
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="horizontal"
+            android:padding="@dimen/space_3"
+            android:background="@color/white">
 
-            <net.yeoubi.turntable.widgets.NotoTextView
-                android:id="@+id/title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/space_1"
-                android:textColor="@color/black"
-                app:weight="light"
-                tools:text="첫눈처럼 너에게 가겠다"/>
-
-            <net.yeoubi.turntable.widgets.NotoTextView
-                android:id="@+id/artist"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+            <net.yeoubi.turntable.view.widgets.NotoTextView
+                android:id="@+id/index"
+                android:layout_width="wrap_content"
+                android:layout_height="14dp"
+                android:layout_marginRight="@dimen/space_2"
+                android:layout_marginEnd="@dimen/space_2"
                 android:textSize="@dimen/font_small"
-                android:textColor="@color/gray600"
-                app:weight="light"
-                tools:text="에일리"/>
-        </LinearLayout>
-    </LinearLayout>
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:text="@{viewModel.item.index}"
+                app:weight="bold"
+                tools:text="#76229"/>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:layout_marginLeft="@dimen/space_3"
-        android:layout_marginRight="@dimen/space_3"
-        android:background="@color/gray200"/>
-</LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <net.yeoubi.turntable.view.widgets.NotoTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/space_1"
+                    android:textColor="@color/black"
+                    android:text="@{viewModel.item.title}"
+                    app:weight="light"
+                    tools:text="첫눈처럼 너에게 가겠다"/>
+
+                <net.yeoubi.turntable.view.widgets.NotoTextView
+                    android:id="@+id/artist"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/font_small"
+                    android:textColor="@color/gray600"
+                    android:text="@{viewModel.item.artist}"
+                    app:weight="light"
+                    tools:text="에일리"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginLeft="@dimen/space_3"
+            android:layout_marginRight="@dimen/space_3"
+            android:background="@color/gray200"/>
+    </LinearLayout>
+</layout>

@@ -1,102 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
+<layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    android:background="@color/gray200"
-    tools:context="net.yeoubi.turntable.MainActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <android.support.design.widget.AppBarLayout
-        android:id="@+id/app_bar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fitsSystemWindows="true">
+    <data>
 
-        <android.support.design.widget.CollapsingToolbarLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fitsSystemWindows="true"
-            app:scrimAnimationDuration="300"
-            app:contentScrim="@color/red"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed"
-            app:toolbarId="@+id/toolbar">
+        <variable
+            name="viewModel"
+            type="net.yeoubi.turntable.viewmodel.MainViewModel"/>
+    </data>
 
-            <View
-                android:id="@+id/background_image"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/background_height"
-                android:background="@color/red"/>
-
-            <android.support.v7.widget.Toolbar
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                app:contentInsetStart="0dp"
-                app:layout_collapseMode="pin"
-                app:popupTheme="@style/AppTheme.PopupOverlay">
-
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <net.yeoubi.turntable.widgets.TitleTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical|start"
-                        android:layout_marginLeft="@dimen/space_4"
-                        android:layout_marginStart="@dimen/space_4"
-                        android:text="@string/app_name"
-                        android:textColor="@color/white"
-                        android:textSize="24sp"/>
-
-                    <ImageView
-                        android:layout_width="18dp"
-                        android:layout_height="18dp"
-                        android:layout_gravity="center_vertical|end"
-                        android:layout_marginRight="@dimen/space_4"
-                        android:layout_marginEnd="@dimen/space_4"
-                        android:src="@drawable/ic_search"
-                        android:tint="@color/white"/>
-                </FrameLayout>
-            </android.support.v7.widget.Toolbar>
-        </android.support.design.widget.CollapsingToolbarLayout>
-    </android.support.design.widget.AppBarLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="@drawable/bottom_shadow"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
-
-    <android.support.v4.widget.NestedScrollView
-        android:id="@+id/content_view"
+    <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/minus_space_8"
-        android:layout_marginLeft="@dimen/space_2"
-        android:layout_marginRight="@dimen/space_2"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        tools:context="net.yeoubi.turntable.MainActivity"
-        tools:showIn="@layout/activity_main">
+        android:fitsSystemWindows="true"
+        android:background="@color/gray200"
+        tools:context="net.yeoubi.turntable.view.MainActivity">
 
-        <android.support.v7.widget.CardView
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/app_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            card_view:cardUseCompatPadding="true"
-            card_view:cardElevation="2dp"
-            card_view:cardCornerRadius="2dp">
+            android:fitsSystemWindows="true">
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/music_list"
+            <android.support.design.widget.CollapsingToolbarLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fitsSystemWindows="true"
+                app:scrimAnimationDuration="300"
+                app:contentScrim="@color/red"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed"
+                app:toolbarId="@+id/toolbar">
+
+                <View
+                    android:id="@+id/background_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/background_height"
+                    android:background="@color/red"/>
+
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    app:contentInsetStart="0dp"
+                    app:layout_collapseMode="pin"
+                    app:popupTheme="@style/AppTheme.PopupOverlay">
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <net.yeoubi.turntable.view.widgets.TitleTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical|start"
+                            android:layout_marginLeft="@dimen/space_4"
+                            android:layout_marginStart="@dimen/space_4"
+                            android:text="@string/app_name"
+                            android:textColor="@color/white"
+                            android:textSize="24sp"/>
+
+                        <ImageView
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:layout_gravity="center_vertical|end"
+                            android:layout_marginRight="@dimen/space_4"
+                            android:layout_marginEnd="@dimen/space_4"
+                            android:src="@drawable/ic_search"
+                            android:tint="@color/white"/>
+                    </FrameLayout>
+                </android.support.v7.widget.Toolbar>
+            </android.support.design.widget.CollapsingToolbarLayout>
+        </android.support.design.widget.AppBarLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@drawable/bottom_shadow"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
+        <android.support.v4.widget.NestedScrollView
+            android:id="@+id/content_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/minus_space_8"
+            android:layout_marginLeft="@dimen/space_2"
+            android:layout_marginRight="@dimen/space_2"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            tools:context="net.yeoubi.turntable.view.MainActivity"
+            tools:showIn="@layout/activity_main">
+
+            <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/white"
-                app:layoutManager="LinearLayoutManager"
-                tools:listitem="@layout/item_music"/>
-        </android.support.v7.widget.CardView>
-    </android.support.v4.widget.NestedScrollView>
-</android.support.design.widget.CoordinatorLayout>
+                card_view:cardUseCompatPadding="true"
+                card_view:cardElevation="2dp"
+                card_view:cardCornerRadius="2dp">
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/music_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    app:layoutManager="LinearLayoutManager"
+                    tools:listitem="@layout/item_music"/>
+            </android.support.v7.widget.CardView>
+        </android.support.v4.widget.NestedScrollView>
+    </android.support.design.widget.CoordinatorLayout>
+</layout>
