@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">turntable</string>
     <string name="popular">인기 차트</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
