@@ -21,7 +21,9 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:padding="@dimen/space_3"
-            android:background="@color/white">
+            android:background="@color/white"
+            android:foreground="?attr/selectableItemBackground"
+            android:onClick="@{() -> viewModel.onClick()}">
 
             <net.yeoubi.turntable.view.widgets.NotoTextView
                 android:id="@+id/index"
