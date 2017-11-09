@@ -21,8 +21,10 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".view.MusicActivity">
-        </activity>
+        <activity
+            android:name=".view.MusicActivity"
+            android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".view.SearchActivity"/>
     </application>
 
 </manifest>
