@@ -1,4 +1,4 @@
-package net.yeoubi.turntable.widgets
+package net.yeoubi.turntable.view.widgets
 
 import android.annotation.TargetApi
 import android.content.Context
