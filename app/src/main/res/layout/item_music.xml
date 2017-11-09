@@ -49,6 +49,8 @@
                     android:layout_marginBottom="@dimen/space_1"
                     android:textColor="@color/black"
                     android:text="@{viewModel.item.title}"
+                    android:lines="1"
+                    android:ellipsize="end"
                     app:weight="light"
                     tools:text="첫눈처럼 너에게 가겠다"/>
 
