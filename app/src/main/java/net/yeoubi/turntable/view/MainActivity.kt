@@ -41,12 +41,14 @@ class MainActivity : ViewModelActivity(), AppBarLayout.OnOffsetChangedListener {
 
     override fun onOffsetChanged(bar: AppBarLayout?, offset: Int) {
         val dimension = DimensionUtils.context(this)
-        content_view.updateMargins(8, (-32 - dimension.toDp(offset) / (144 / 32)).toInt(), 8, 0)
+        binding.viewContent.updateMargins(8, (-32 - dimension.toDp(offset) / (136 / 32f)).toInt(), 8, 0)
+        binding.viewTitle.alpha = 1 + dimension.toDp(offset) / 45f
+        binding.viewShadow.alpha = 1 + dimension.toDp(offset) / 136f
     }
 
     private fun setup() {
         setRecyclerView()
-        app_bar.addOnOffsetChangedListener(this)
+        binding.appBar.addOnOffsetChangedListener(this)
     }
 
     private fun setRecyclerView() {

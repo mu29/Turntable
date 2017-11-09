@@ -35,10 +35,34 @@
                 app:toolbarId="@+id/toolbar">
 
                 <View
-                    android:id="@+id/background_image"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/background_height"
                     android:background="@color/red"/>
+
+                <LinearLayout
+                    android:id="@+id/view_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/space_6"
+                    android:padding="@dimen/space_4"
+                    android:layout_gravity="bottom"
+                    android:orientation="vertical"
+                    app:layout_collapseMode="pin">
+
+                    <net.yeoubi.turntable.view.widgets.NotoTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/space_2"
+                        android:text="@string/popular"
+                        android:textSize="@dimen/font_normal"
+                        android:textColor="@color/white"
+                        app:weight="bold"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:background="@color/white"/>
+                </LinearLayout>
 
                 <android.support.v7.widget.Toolbar
                     android:id="@+id/toolbar"
@@ -76,13 +100,14 @@
         </android.support.design.widget.AppBarLayout>
 
         <View
+            android:id="@+id/view_shadow"
             android:layout_width="match_parent"
             android:layout_height="2dp"
             android:background="@drawable/bottom_shadow"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 
         <android.support.v4.widget.NestedScrollView
-            android:id="@+id/content_view"
+            android:id="@+id/view_content"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="@dimen/minus_space_8"
