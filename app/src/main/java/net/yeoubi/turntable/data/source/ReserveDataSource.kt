@@ -10,7 +10,9 @@ interface ReserveDataSource {
 
     fun push(music: Music)
 
-    fun pop(): Music
+    fun pop(): Music?
+
+    fun remove(item: Music)
 
     fun all(): List<Music>
 }

@@ -18,8 +18,12 @@ class ReserveRepository @Inject constructor() : ReserveDataSource {
         localDataSource.push(music)
     }
 
-    override fun pop(): Music {
+    override fun pop(): Music? {
         return localDataSource.pop()
+    }
+
+    override fun remove(item: Music) {
+        return localDataSource.remove(item)
     }
 
     override fun all(): List<Music> {
