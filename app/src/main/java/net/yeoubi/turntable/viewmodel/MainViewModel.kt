@@ -10,6 +10,7 @@ import net.yeoubi.turntable.view.common.AttachedView
 import net.yeoubi.turntable.viewmodel.common.ViewModel
 import net.yeoubi.turntable.data.Music
 import net.yeoubi.turntable.data.repository.MusicRepository
+import net.yeoubi.turntable.view.SearchActivity
 import javax.inject.Inject
 
 /**
@@ -44,5 +45,9 @@ class MainViewModel(
                 onError = Throwable::printStackTrace
             )
             .apply { disposables.add(this) }
+    }
+
+    fun openSearchActivity() {
+        view.startActivity(SearchActivity::class)
     }
 }

@@ -53,7 +53,7 @@ class MainActivity : ViewModelActivity(), AppBarLayout.OnOffsetChangedListener {
 
     private fun setRecyclerView() {
         musicAdapter = RecyclerAdapter(this)
-        binding.musicList.apply {
+        binding.listMusic.apply {
             adapter = musicAdapter
             setHasFixedSize(true)
         }

@@ -96,7 +96,9 @@
                             android:layout_marginRight="@dimen/space_4"
                             android:layout_marginEnd="@dimen/space_4"
                             android:src="@drawable/ic_search"
-                            android:tint="@color/white"/>
+                            android:tint="@color/white"
+                            android:background="?attr/selectableItemBackground"
+                            android:onClick="@{() -> viewModel.openSearchActivity()}"/>
                     </FrameLayout>
                 </android.support.v7.widget.Toolbar>
             </android.support.design.widget.CollapsingToolbarLayout>
@@ -128,7 +130,7 @@
                 card_view:cardCornerRadius="2dp">
 
                 <android.support.v7.widget.RecyclerView
-                    android:id="@+id/music_list"
+                    android:id="@+id/list_music"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/white"
