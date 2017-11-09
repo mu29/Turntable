@@ -60,8 +60,9 @@ class SearchFragment : ViewModelFragment() {
     private fun setEditText() {
         RxTextView
             .textChanges(binding.etInput)
-            .debounce(1000, TimeUnit.MILLISECONDS)
             .filter { !it.isEmpty() }
+            .doOnNext { viewModel.loading.set(true) }
+            .debounce(1000, TimeUnit.MILLISECONDS)
             .subscribe { viewModel.search(it.toString()) }
             .apply { disposables.add(this) }
     }

@@ -88,6 +88,17 @@
                     app:layoutManager="LinearLayoutManager"
                     tools:listitem="@layout/item_music"/>
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="@string/search_empty"
+                    android:textColor="@color/gray500"
+                    android:lineSpacingExtra="@dimen/space_1"
+                    android:visibility="@{safeUnbox(viewModel.musics.isEmpty()) ? View.VISIBLE : View.GONE}"
+                    tools:visibility="gone"/>
+
                 <FrameLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
