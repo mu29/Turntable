@@ -8,5 +8,6 @@ class Extras {
 
     companion object {
         val ID = "ID"
+        val ON_CLICK = "ON_CLICK"
     }
 }

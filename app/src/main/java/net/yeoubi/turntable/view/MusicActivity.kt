@@ -14,13 +14,19 @@ import net.yeoubi.turntable.viewmodel.MusicViewModel
 import net.yeoubi.turntable.viewmodel.common.ViewModel
 import com.google.android.youtube.player.YouTubePlayerSupportFragment
 import net.yeoubi.turntable.BuildConfig
+import android.support.v7.widget.LinearLayoutManager
+import net.yeoubi.turntable.common.constants.Extras
+import net.yeoubi.turntable.data.Music
+import net.yeoubi.turntable.view.adapter.ItemChangeListener
+import net.yeoubi.turntable.view.adapter.RecyclerAdapter
+import net.yeoubi.turntable.viewmodel.item.ReserveItemViewModel
 
-
-class MusicActivity : ViewModelActivity(), YouTubePlayer.OnInitializedListener {
+class MusicActivity : ViewModelActivity(), YouTubePlayer.OnInitializedListener, SearchFragment.OnReserveListener {
 
     lateinit var viewModel: MusicViewModel
     lateinit var binding: ActivityMusicBinding
     lateinit var videoView: YouTubePlayerSupportFragment
+    lateinit var reserveAdapter: RecyclerAdapter
 
     override fun createViewModel(context: Context, activity: AttachedView): ViewModel? {
         viewModel = MusicViewModel(context, activity)
@@ -32,13 +38,16 @@ class MusicActivity : ViewModelActivity(), YouTubePlayer.OnInitializedListener {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_music)
         binding.viewModel = viewModel
 
-        viewModel.init()
         setup()
+        viewModel.next()
     }
 
     override fun onInitializationSuccess(provider: YouTubePlayer.Provider, player: YouTubePlayer, wasRestored: Boolean) {
-        if (!wasRestored) {
-            player.cueVideo(viewModel.musicId.get())
+        if (wasRestored)
+            return
+
+        viewModel.musicId.get()?.let {
+            player.cueVideo(it)
         }
     }
 
@@ -46,8 +55,39 @@ class MusicActivity : ViewModelActivity(), YouTubePlayer.OnInitializedListener {
         Toast.makeText(this, errorReason.toString(), Toast.LENGTH_LONG).show()
     }
 
+    override fun onReserve() {
+        viewModel.load()
+    }
+
     private fun setup() {
+        setVideoView()
+        setSearchView()
+        setRecyclerView()
+    }
+
+    private fun setVideoView() {
         videoView = supportFragmentManager.findFragmentById(R.id.view_video) as YouTubePlayerSupportFragment
         videoView.initialize(BuildConfig.YOUTUBE_API_KEY, this)
+    }
+
+    private fun setSearchView() {
+        val searchView = supportFragmentManager.findFragmentById(R.id.view_search) as SearchFragment
+        searchView.onReserveListener = this
+    }
+
+    private fun setRecyclerView() {
+        reserveAdapter = RecyclerAdapter(this)
+
+        binding.listReserve.apply {
+            adapter = reserveAdapter
+            layoutManager = LinearLayoutManager(this@MusicActivity, LinearLayoutManager.HORIZONTAL, false)
+        }
+
+        viewModel.reserveList.addOnListChangedCallback(ItemChangeListener {
+            reserveAdapter.reset(
+                it.map(::ReserveItemViewModel), R.layout.item_reserve,
+                Extras.ON_CLICK, { item: Music -> viewModel.remove(item) }
+            )
+        })
     }
 }

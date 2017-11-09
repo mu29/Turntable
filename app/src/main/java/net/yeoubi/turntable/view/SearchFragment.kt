@@ -3,13 +3,13 @@ package net.yeoubi.turntable.view
 import android.content.Context
 import android.databinding.DataBindingUtil
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.jakewharton.rxbinding2.widget.RxTextView
 
 import net.yeoubi.turntable.R
+import net.yeoubi.turntable.common.constants.Extras
 import net.yeoubi.turntable.databinding.FragmentSearchBinding
 import net.yeoubi.turntable.view.adapter.ItemChangeListener
 import net.yeoubi.turntable.view.adapter.RecyclerAdapter
@@ -21,6 +21,11 @@ import net.yeoubi.turntable.viewmodel.item.MusicItemViewModel
 import java.util.concurrent.TimeUnit
 
 class SearchFragment : ViewModelFragment() {
+
+    interface OnReserveListener {
+        fun onReserve()
+    }
+    var onReserveListener: OnReserveListener? = null
 
     lateinit var viewModel: SearchViewModel
     lateinit var binding: FragmentSearchBinding
@@ -53,7 +58,10 @@ class SearchFragment : ViewModelFragment() {
             setHasFixedSize(true)
         }
         viewModel.musics.addOnListChangedCallback(ItemChangeListener {
-            musicAdapter.reset(it.map(::MusicItemViewModel), R.layout.item_music)
+            musicAdapter.reset(
+                it.map(::MusicItemViewModel), R.layout.item_music,
+                Extras.ON_CLICK, { onReserveListener?.onReserve() }
+            )
         })
     }
 
