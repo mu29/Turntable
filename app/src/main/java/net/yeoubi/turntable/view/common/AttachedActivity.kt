@@ -2,7 +2,6 @@ package net.yeoubi.turntable.view.common
 
 import android.app.Activity
 import android.content.Intent
-import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import java.lang.ref.WeakReference
 import java.net.URISyntaxException
@@ -27,6 +26,10 @@ class AttachedActivity(activity: AppCompatActivity) : AttachedView {
     override fun startActivity(activityClass: KClass<*>) {
         val activity = weakActivity.get()
         if (activity != null && !activity.isFinishing) {
+            if (activity::class == activityClass) {
+                return
+            }
+
             activity.startActivity(Intent(activity, activityClass.java))
         }
     }
@@ -40,6 +43,10 @@ class AttachedActivity(activity: AppCompatActivity) : AttachedView {
     override fun startActivity(activityClass: KClass<*>, vararg extras: Any) {
         val activity = weakActivity.get()
         if (activity != null && !activity.isFinishing) {
+            if (activity::class == activityClass) {
+                return
+            }
+
             val intent = Intent(activity, activityClass.java)
             val keys = extras.filterIndexed { index, _ -> index % 2 == 0 } .map { it as String }
             val values = extras.filterIndexed { index, _ -> index % 2 == 1 }
@@ -65,6 +72,10 @@ class AttachedActivity(activity: AppCompatActivity) : AttachedView {
     override fun startActivity(activityClass: Class<Activity>) {
         val activity = weakActivity.get()
         if (activity != null && !activity.isFinishing) {
+            if (activity::class == activityClass) {
+                return
+            }
+
             activity.startActivity(Intent(activity, activityClass))
         }
     }
@@ -78,6 +89,10 @@ class AttachedActivity(activity: AppCompatActivity) : AttachedView {
     override fun startActivity(activityClass: Class<Activity>, vararg extras: Any) {
         val activity = weakActivity.get()
         if (activity != null && !activity.isFinishing) {
+            if (activity::class == activityClass) {
+                return
+            }
+
             val intent = Intent(activity, activityClass)
             val keys = extras.filterIndexed { index, _ -> index % 2 == 0 } .map { it as String }
             val values = extras.filterIndexed { index, _ -> index % 2 == 1 }

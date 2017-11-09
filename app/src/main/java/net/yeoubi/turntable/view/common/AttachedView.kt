@@ -1,7 +1,6 @@
 package net.yeoubi.turntable.view.common
 
 import android.app.Activity
-import android.os.Bundle
 import java.net.URISyntaxException
 import kotlin.reflect.KClass
 

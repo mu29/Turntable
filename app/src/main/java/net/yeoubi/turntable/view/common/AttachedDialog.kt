@@ -26,6 +26,10 @@ class AttachedDialog(dialog: DialogFragment) : AttachedView {
     override fun startActivity(activityClass: KClass<*>) {
         val activity = weakDialog.get()?.activity
         if (activity != null && !activity.isFinishing) {
+            if (activity::class == activityClass) {
+                return
+            }
+
             activity.startActivity(Intent(activity, activityClass.java))
         }
     }
@@ -39,6 +43,10 @@ class AttachedDialog(dialog: DialogFragment) : AttachedView {
     override fun startActivity(activityClass: KClass<*>, vararg extras: Any) {
         val activity = weakDialog.get()?.activity
         if (activity != null && !activity.isFinishing) {
+            if (activity::class == activityClass) {
+                return
+            }
+
             val intent = Intent(activity, activityClass.java)
             val keys = extras.filterIndexed { index, _ -> index % 2 == 0 } .map { it as String }
             val values = extras.filterIndexed { index, _ -> index % 2 == 1 }
@@ -64,6 +72,10 @@ class AttachedDialog(dialog: DialogFragment) : AttachedView {
     override fun startActivity(activityClass: Class<Activity>) {
         val activity = weakDialog.get()?.activity
         if (activity != null && !activity.isFinishing) {
+            if (activity::class == activityClass) {
+                return
+            }
+
             activity.startActivity(Intent(activity, activityClass))
         }
     }
@@ -77,6 +89,10 @@ class AttachedDialog(dialog: DialogFragment) : AttachedView {
     override fun startActivity(activityClass: Class<Activity>, vararg extras: Any) {
         val activity = weakDialog.get()?.activity
         if (activity != null && !activity.isFinishing) {
+            if (activity::class == activityClass) {
+                return
+            }
+
             val intent = Intent(activity, activityClass)
             val keys = extras.filterIndexed { index, _ -> index % 2 == 0 } .map { it as String }
             val values = extras.filterIndexed { index, _ -> index % 2 == 1 }
