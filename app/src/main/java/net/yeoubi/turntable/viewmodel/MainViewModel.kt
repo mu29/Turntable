@@ -2,6 +2,7 @@ package net.yeoubi.turntable.viewmodel
 
 import android.content.Context
 import android.databinding.ObservableArrayList
+import android.databinding.ObservableField
 import android.databinding.ObservableList
 import io.reactivex.rxkotlin.subscribeBy
 import net.yeoubi.turntable.di.component.NetworkComponent
@@ -24,16 +25,19 @@ class MainViewModel(
     lateinit var musicRepository: MusicRepository
 
     var musics: ObservableList<Music> = ObservableArrayList()
+    var loading: ObservableField<Boolean> = ObservableField(true)
 
     override fun inject(networkComponent: NetworkComponent) {
         networkComponent.inject(this)
     }
 
     fun search(query: String) {
+        loading.set(true)
         musicRepository
             .search(query)
             .subscribeBy(
                 onNext = {
+                    loading.set(false)
                     musics.clear()
                     musics.addAll(it.items.filter { it.valid })
                 },

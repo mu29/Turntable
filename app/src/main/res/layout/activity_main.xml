@@ -8,6 +8,9 @@
 
     <data>
 
+        <import
+            type="android.view.View"/>
+
         <variable
             name="viewModel"
             type="net.yeoubi.turntable.viewmodel.MainViewModel"/>
@@ -131,6 +134,18 @@
                     android:background="@color/white"
                     app:layoutManager="LinearLayoutManager"
                     tools:listitem="@layout/item_music"/>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/background_height"
+                    android:visibility="@{safeUnbox(viewModel.loading) ? View.VISIBLE : View.GONE}"
+                    tools:visibility="gone">
+
+                    <ProgressBar
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"/>
+                </FrameLayout>
             </android.support.v7.widget.CardView>
         </android.support.v4.widget.NestedScrollView>
     </android.support.design.widget.CoordinatorLayout>
