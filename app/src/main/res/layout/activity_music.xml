@@ -26,13 +26,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/list_reserve"
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/space_2"
-                android:layout_marginRight="@dimen/space_2"
-                android:background="@color/white"/>
+                android:layout_height="wrap_content">
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/list_reserve"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@drawable/bottom_shadow"/>
+            </FrameLayout>
 
             <fragment
                 android:id="@+id/view_search"

@@ -2,6 +2,7 @@ package net.yeoubi.turntable.view
 
 import android.content.Context
 import android.databinding.DataBindingUtil
+import android.databinding.Observable
 import android.os.Bundle
 import android.widget.Toast
 import com.google.android.youtube.player.YouTubeInitializationResult
@@ -19,6 +20,8 @@ import net.yeoubi.turntable.common.constants.Extras
 import net.yeoubi.turntable.data.Music
 import net.yeoubi.turntable.view.adapter.ItemChangeListener
 import net.yeoubi.turntable.view.adapter.RecyclerAdapter
+import net.yeoubi.turntable.view.helper.OnPropertyChangedCallback
+import net.yeoubi.turntable.view.helper.YoutubePlayerStateChangeListener
 import net.yeoubi.turntable.viewmodel.item.ReserveItemViewModel
 
 class MusicActivity : ViewModelActivity(), YouTubePlayer.OnInitializedListener, SearchFragment.OnReserveListener {
@@ -39,16 +42,24 @@ class MusicActivity : ViewModelActivity(), YouTubePlayer.OnInitializedListener, 
         binding.viewModel = viewModel
 
         setup()
-        viewModel.next()
     }
 
     override fun onInitializationSuccess(provider: YouTubePlayer.Provider, player: YouTubePlayer, wasRestored: Boolean) {
-        if (wasRestored)
-            return
+        player.setPlayerStateChangeListener(YoutubePlayerStateChangeListener(
+            onEnd = { viewModel.next() },
+            onError = { Toast.makeText(this, it, Toast.LENGTH_LONG).show() }
+        ))
 
-        viewModel.musicId.get()?.let {
-            player.cueVideo(it)
-        }
+        viewModel.musicId.addOnPropertyChangedCallback(OnPropertyChangedCallback {
+            val musicId = viewModel.musicId.get()
+            if (musicId.isNullOrEmpty()) {
+                viewModel.next()
+            } else {
+                player.loadVideo(musicId)
+            }
+        })
+
+        viewModel.next()
     }
 
     override fun onInitializationFailure(provider: YouTubePlayer.Provider, errorReason: YouTubeInitializationResult) {
