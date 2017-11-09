@@ -1,11 +1,15 @@
 package net.yeoubi.turntable.viewmodel
 
 import android.content.Context
+import android.databinding.ObservableArrayList
 import android.databinding.ObservableField
-import net.yeoubi.turntable.common.constants.Extras
+import android.databinding.ObservableList
+import net.yeoubi.turntable.data.Music
+import net.yeoubi.turntable.data.repository.ReserveRepository
 import net.yeoubi.turntable.di.component.NetworkComponent
 import net.yeoubi.turntable.view.common.AttachedView
 import net.yeoubi.turntable.viewmodel.common.ViewModel
+import javax.inject.Inject
 
 /**
  * InJung Chung
@@ -16,15 +20,30 @@ class MusicViewModel(
     view: AttachedView
 ) : ViewModel(context, view) {
 
-    var musicId = ObservableField<String>()
+    @Inject
+    lateinit var reserveRepository: ReserveRepository
+
+    var musicId = ObservableField<String?>()
+    var reserveList: ObservableList<Music> = ObservableArrayList<Music>()
 
     override fun inject(networkComponent: NetworkComponent) {
         networkComponent.inject(this)
     }
 
-    fun init() {
-        view.getExtra(Extras.ID)?.let {
-            musicId.set(it as? String)
+    fun next() {
+        reserveRepository.pop()?.let {
+            musicId.set(it.id)
+            load()
         }
+    }
+
+    fun remove(item: Music) {
+        reserveRepository.remove(item)
+        load()
+    }
+
+    fun load() {
+        reserveList.clear()
+        reserveList.addAll(reserveRepository.all())
     }
 }
