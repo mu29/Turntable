@@ -38,7 +38,7 @@ class MainActivity : ViewModelActivity(), AppBarLayout.OnOffsetChangedListener {
         setSupportActionBar(toolbar)
 
         setup()
-        viewModel.search("고백")
+        viewModel.load()
     }
 
     override fun onOffsetChanged(bar: AppBarLayout?, offset: Int) {

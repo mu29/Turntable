@@ -18,4 +18,8 @@ class MusicRepository @Inject constructor() : MusicDataSource {
     override fun search(query: String): Observable<MusicList> {
         return remoteDataSource.search(query)
     }
+
+    override fun recent(): Observable<MusicList> {
+        return remoteDataSource.recent()
+    }
 }

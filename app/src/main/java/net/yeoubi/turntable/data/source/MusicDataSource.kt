@@ -10,4 +10,6 @@ import net.yeoubi.turntable.data.MusicList
 interface MusicDataSource {
 
     fun search(query: String): Observable<MusicList>
+
+    fun recent(): Observable<MusicList>
 }

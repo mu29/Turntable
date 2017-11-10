@@ -33,10 +33,10 @@ class MainViewModel(
         networkComponent.inject(this)
     }
 
-    fun search(query: String) {
+    fun load() {
         loading.set(true)
         musicRepository
-            .search(query)
+            .recent()
             .subscribeBy(
                 onNext = {
                     loading.set(false)
@@ -44,6 +44,7 @@ class MainViewModel(
                     musics.addAll(it.items.filter { it.valid })
                 },
                 onError = {
+                    it.printStackTrace()
                     FirebaseCrash.report(it)
                 }
             )

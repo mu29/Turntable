@@ -1,6 +1,6 @@
 package net.yeoubi.turntable.data
 
-import java.util.*
+import com.google.gson.annotations.SerializedName
 
 /**
  * InJung Chung
@@ -8,5 +8,7 @@ import java.util.*
 
 class Info(
     val title: String,
-    val publishedAt: Date
-)
+    val description: String
+) {
+    @SerializedName("resourceId") lateinit var identifier: Identifier
+}
