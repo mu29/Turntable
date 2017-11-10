@@ -43,6 +43,7 @@ class SearchViewModel(
                     musics.addAll(it.items.filter { it.valid })
                 },
                 onError = {
+                    it.printStackTrace()
                     FirebaseCrash.report(it)
                 }
             )
