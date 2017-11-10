@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "446111613886",
+    "firebase_url": "https://turntable-a8917.firebaseio.com",
+    "project_id": "turntable-a8917",
+    "storage_bucket": "turntable-a8917.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:446111613886:android:d9a050bc1c2b8adb",
+        "android_client_info": {
+          "package_name": "net.yeoubi.turntable"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "446111613886-6nekt5r25gkgrhe1fl4bs86m5en9q48v.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "net.yeoubi.turntable",
+            "certificate_hash": "5aabe13906cbb145cb81dffc783abfe47d131952"
+          }
+        },
+        {
+          "client_id": "446111613886-72caqallb0p2m247c87inhv0tojkk31s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBYSiok0-GY7eh1cyGXFGkyVWz3mL3jOko"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "446111613886-72caqallb0p2m247c87inhv0tojkk31s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

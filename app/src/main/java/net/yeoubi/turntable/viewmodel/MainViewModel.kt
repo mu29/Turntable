@@ -4,6 +4,7 @@ import android.content.Context
 import android.databinding.ObservableArrayList
 import android.databinding.ObservableField
 import android.databinding.ObservableList
+import com.google.firebase.crash.FirebaseCrash
 import io.reactivex.rxkotlin.subscribeBy
 import net.yeoubi.turntable.di.component.NetworkComponent
 import net.yeoubi.turntable.view.common.AttachedView
@@ -42,7 +43,9 @@ class MainViewModel(
                     musics.clear()
                     musics.addAll(it.items.filter { it.valid })
                 },
-                onError = Throwable::printStackTrace
+                onError = {
+                    FirebaseCrash.report(it)
+                }
             )
             .apply { disposables.add(this) }
     }

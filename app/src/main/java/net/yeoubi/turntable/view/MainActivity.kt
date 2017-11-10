@@ -16,13 +16,14 @@ import net.yeoubi.turntable.view.common.ViewModelActivity
 import net.yeoubi.turntable.viewmodel.MainViewModel
 import net.yeoubi.turntable.viewmodel.common.ViewModel
 import net.yeoubi.turntable.viewmodel.item.MusicItemViewModel
-
+import com.google.firebase.analytics.FirebaseAnalytics
 
 class MainActivity : ViewModelActivity(), AppBarLayout.OnOffsetChangedListener {
 
     lateinit var viewModel: MainViewModel
     lateinit var binding: ActivityMainBinding
     private lateinit var musicAdapter: RecyclerAdapter
+    private lateinit var firebaseAnalytics: FirebaseAnalytics
 
     override fun createViewModel(context: Context, activity: AttachedView): ViewModel? {
         viewModel = MainViewModel(context, activity)
@@ -31,6 +32,7 @@ class MainActivity : ViewModelActivity(), AppBarLayout.OnOffsetChangedListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        firebaseAnalytics = FirebaseAnalytics.getInstance(this)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         binding.viewModel = viewModel
         setSupportActionBar(toolbar)
