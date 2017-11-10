@@ -9,6 +9,8 @@
 
         <import type="android.view.View"/>
 
+        <import type="net.yeoubi.turntable.BuildConfig"/>
+
         <variable
             type="net.yeoubi.turntable.viewmodel.SearchViewModel"
             name="viewModel"/>
@@ -127,6 +129,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/gray600"
+                android:visibility="@{BuildConfig.PREMIUM ? View.VISIBLE : View.GONE}"
                 ads:adSize="BANNER"
                 ads:adUnitId="@string/banner_ad">
             </com.google.android.gms.ads.AdView>

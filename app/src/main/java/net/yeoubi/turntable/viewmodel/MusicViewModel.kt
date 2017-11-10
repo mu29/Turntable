@@ -4,6 +4,7 @@ import android.content.Context
 import android.databinding.ObservableArrayList
 import android.databinding.ObservableField
 import android.databinding.ObservableList
+import net.yeoubi.turntable.BuildConfig
 import net.yeoubi.turntable.data.Music
 import net.yeoubi.turntable.data.repository.ReserveRepository
 import net.yeoubi.turntable.di.component.NetworkComponent
@@ -36,7 +37,7 @@ class MusicViewModel(
     fun next() {
         adCount += 1
         reserveRepository.pop()?.let {
-            shouldShowAd.set(adCount % 5 == 0)
+            shouldShowAd.set(adCount % 5 == 0 && !BuildConfig.PREMIUM)
             musicId.set(it.id)
             load()
         }
