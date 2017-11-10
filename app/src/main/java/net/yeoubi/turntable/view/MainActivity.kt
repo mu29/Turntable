@@ -32,6 +32,7 @@ class MainActivity : ViewModelActivity(), AppBarLayout.OnOffsetChangedListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setTheme(R.style.AppTheme_NoActionBar)
         firebaseAnalytics = FirebaseAnalytics.getInstance(this)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         binding.viewModel = viewModel
