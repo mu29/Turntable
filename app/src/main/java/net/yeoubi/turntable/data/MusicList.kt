@@ -8,4 +8,10 @@ import com.google.gson.annotations.SerializedName
 
 class MusicList {
     @SerializedName("items") lateinit var items: List<Music>
+
+    constructor()
+
+    constructor(items: List<Music>) {
+        this.items = items
+    }
 }

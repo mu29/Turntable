@@ -26,7 +26,9 @@ android {
             resValue 'string', 'interstitial_id', 'ca-app-pub-3940256099942544/1033173712'
             buildConfigField 'String', 'YOUTUBE_API_KEY', "\"AIzaSyC8RJ4DQ7yTdem3z4uCs9j7yh-kUe_dj1c\""
             buildConfigField 'String', 'API_BASE_URL', "\"https://www.googleapis.com/\""
-            buildConfigField 'String', 'CHANNEL_ID', "\"UC30NN_b9EmZxzsS3bBa6FWA\""
+            buildConfigField 'String', 'KY_CHANNEL_ID', "\"UC30NN_b9EmZxzsS3bBa6FWA\""
+            buildConfigField 'String', 'TJ_CHANNEL_ID', "\"UCZUhx8ClCv6paFW7qi3qljg\""
+            buildConfigField 'String', 'RECENT_PLAYLIST', "\"PL5rkMpxC5Ex81afWiXpTnBNyGAfk-L06u\""
         }
         release {
             minifyEnabled false
@@ -35,7 +37,9 @@ android {
             resValue 'string', 'interstitial_id', 'ca-app-pub-6988311040138762/8346211423'
             buildConfigField 'String', 'YOUTUBE_API_KEY', "\"AIzaSyC8RJ4DQ7yTdem3z4uCs9j7yh-kUe_dj1c\""
             buildConfigField 'String', 'API_BASE_URL', "\"https://www.googleapis.com/\""
-            buildConfigField 'String', 'CHANNEL_ID', "\"UC30NN_b9EmZxzsS3bBa6FWA\""
+            buildConfigField 'String', 'KY_CHANNEL_ID', "\"UC30NN_b9EmZxzsS3bBa6FWA\""
+            buildConfigField 'String', 'TJ_CHANNEL_ID', "\"UCZUhx8ClCv6paFW7qi3qljg\""
+            buildConfigField 'String', 'RECENT_PLAYLIST', "\"PL5rkMpxC5Ex81afWiXpTnBNyGAfk-L06u\""
         }
     }
 }

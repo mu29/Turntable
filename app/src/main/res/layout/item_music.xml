@@ -27,7 +27,7 @@
 
             <net.yeoubi.turntable.view.widgets.NotoTextView
                 android:id="@+id/index"
-                android:layout_width="36dp"
+                android:layout_width="52dp"
                 android:layout_height="14dp"
                 android:layout_marginRight="@dimen/space_2"
                 android:layout_marginEnd="@dimen/space_2"
@@ -36,7 +36,7 @@
                 android:gravity="start"
                 android:text="@{viewModel.item.index}"
                 app:weight="bold"
-                tools:text="#76229"/>
+                tools:text="KY09276"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -52,7 +52,7 @@
                     android:lines="1"
                     android:ellipsize="end"
                     app:weight="light"
-                    tools:text="첫눈처럼 너에게 가겠다"/>
+                    tools:text="고백"/>
 
                 <net.yeoubi.turntable.view.widgets.NotoTextView
                     android:id="@+id/artist"
@@ -62,7 +62,7 @@
                     android:textColor="@color/gray600"
                     android:text="@{viewModel.item.artist}"
                     app:weight="light"
-                    tools:text="에일리"/>
+                    tools:text="델리스파이스(Delispice)"/>
             </LinearLayout>
         </LinearLayout>
 
