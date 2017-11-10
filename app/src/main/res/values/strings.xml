@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">turntable</string>
+    <string name="icon_app_name">Turntable</string>
     <string name="recent">New Releases</string>
     <string name="loading">Now Loading..</string>
     <string name="search_hint">Search by title or artist</string>

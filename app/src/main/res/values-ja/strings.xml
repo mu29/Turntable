@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">turntable</string>
+    <string name="icon_app_name">ターンテーブル</string>
     <string name="recent">最新曲</string>
     <string name="loading">読み込んでいます。</string>
     <string name="search_hint">タイトル、アーティスト名で検索</string>
