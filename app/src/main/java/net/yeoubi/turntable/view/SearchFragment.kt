@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.google.android.gms.ads.AdRequest
 import com.jakewharton.rxbinding2.widget.RxTextView
 
 import net.yeoubi.turntable.R
@@ -43,6 +44,7 @@ class SearchFragment : ViewModelFragment() {
 
         setRecyclerView()
         setEditText()
+        initBarAd()
 
         return binding.root
     }
@@ -73,5 +75,10 @@ class SearchFragment : ViewModelFragment() {
             .debounce(1000, TimeUnit.MILLISECONDS)
             .subscribe { viewModel.search(it.toString()) }
             .apply { disposables.add(this) }
+    }
+
+    private fun initBarAd() {
+        val adRequest = AdRequest.Builder().build()
+        binding.adView.loadAd(adRequest)
     }
 }
