@@ -61,6 +61,8 @@
                     android:textSize="@dimen/font_small"
                     android:textColor="@color/gray600"
                     android:text="@{viewModel.item.artist}"
+                    android:lines="1"
+                    android:ellipsize="end"
                     app:weight="light"
                     tools:text="델리스파이스(Delispice)"/>
             </LinearLayout>
