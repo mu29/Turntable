@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">turntable</string>
-    <string name="recent">최신곡</string>
-    <string name="loading">불러오는 중입니다..</string>
-    <string name="search_hint">곡명, 가수명으로 검색</string>
-    <string name="search_empty">검색 결과가 없습니다.\n부르고 싶은 곡을 찾아보세요!</string>
+    <string name="recent">New Releases</string>
+    <string name="loading">Now Loading..</string>
+    <string name="search_hint">Search by title or artist</string>
+    <string name="search_empty">No results found.\nFind the music you want to sing!</string>
 </resources>
