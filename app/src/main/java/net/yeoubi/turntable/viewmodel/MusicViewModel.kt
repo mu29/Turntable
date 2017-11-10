@@ -24,14 +24,19 @@ class MusicViewModel(
     lateinit var reserveRepository: ReserveRepository
 
     var musicId = ObservableField<String?>()
+    var shouldShowAd = ObservableField<Boolean>(false)
     var reserveList: ObservableList<Music> = ObservableArrayList<Music>()
+
+    private var adCount = 0
 
     override fun inject(networkComponent: NetworkComponent) {
         networkComponent.inject(this)
     }
 
     fun next() {
+        adCount += 1
         reserveRepository.pop()?.let {
+            shouldShowAd.set(adCount % 5 == 0)
             musicId.set(it.id)
             load()
         }
