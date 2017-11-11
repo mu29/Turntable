@@ -24,7 +24,6 @@ android {
         debug {
             resValue 'string', 'banner_ad', 'ca-app-pub-3940256099942544/6300978111'
             resValue 'string', 'interstitial_id', 'ca-app-pub-3940256099942544/1033173712'
-            buildConfigField 'boolean', 'PREMIUM', 'false'
             buildConfigField 'String', 'YOUTUBE_API_KEY', '"AIzaSyC8RJ4DQ7yTdem3z4uCs9j7yh-kUe_dj1c"'
             buildConfigField 'String', 'API_BASE_URL', '"https://www.googleapis.com/"'
             buildConfigField 'String', 'KY_CHANNEL_ID', '"UC30NN_b9EmZxzsS3bBa6FWA"'
@@ -36,7 +35,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             resValue 'string', 'banner_ad', 'ca-app-pub-6988311040138762/1030349251'
             resValue 'string', 'interstitial_id', 'ca-app-pub-6988311040138762/8346211423'
-            buildConfigField 'boolean', 'PREMIUM', 'false'
             buildConfigField 'String', 'YOUTUBE_API_KEY', '"AIzaSyC8RJ4DQ7yTdem3z4uCs9j7yh-kUe_dj1c"'
             buildConfigField 'String', 'API_BASE_URL', '"https://www.googleapis.com/"'
             buildConfigField 'String', 'KY_CHANNEL_ID', '"UC30NN_b9EmZxzsS3bBa6FWA"'
